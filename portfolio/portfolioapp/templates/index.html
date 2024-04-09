@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="contactForm">
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            <h2>Send Message</h2>
+            <div class="inputBox">
+                <input type="text" name="Name" required="required">
+                <span>Full name</span>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="Email" required="required">
+                <span>Email</span>
+            </div>
+            <div class="inputBox">
+                <textarea name="Description" required="required"></textarea>
+                <span>Your Message</span>
+            </div>
+            <div class="inputBox">
+                <input type="submit" name="" value="submit">
+            </div>
+            </button>
+    </div>
+    {% if messages %}
+    {% for msg in messages %}
+    <marquee width="60%" direction="left" height="100px">
+        <p>{{msg}}</p>
+    </marquee>
+    {% endfor %}
+    {% endif %}
+    </form>
+    </div>
+    <div class="adminButton">
+        <a href="{% url 'admin:index' %}">Admin</a>
+    </div>
+    
+</body>
+
+</html>
