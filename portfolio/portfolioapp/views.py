@@ -6,7 +6,8 @@ def index(request):
         Name=request.POST['Name']
         Email=request.POST['Email']
         Description=request.POST['Description']
-        ContactMessage.objects.create(name=Name, email=Email, message=Description)
+        subject=request.POST['Subject']
+        ContactMessage.objects.create(name=Name, email=Email, subject=subject, message=Description,)
         messages.success(request,'Data has been submitted')
         
 
